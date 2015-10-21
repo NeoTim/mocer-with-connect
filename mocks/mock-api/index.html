@@ -4,30 +4,38 @@
 <head>
   <meta charset="utf-8">
   <title>api</title>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <h2 id="title">hello api</h2>
-  <div id="container" class="container">
-  </div>
-
-  <script id="content" type="text/x-handlebars-template">
-    <div>
-      {{#datas}}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3>{{url}}</h3>
+<body ng-controller="AppController as vm">
+  <div class="container" style="width: 1280px; margin: auto">
+    <div class="row">
+      <div class="col-md-4">
+        <div class=" affix">
+          <h4 id="title">All Apis <small>(点击url查看详情)</small></h4>
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="api in vm.apis">
+              <a href="#title-{{$index}}">{{api.url}}</a>
+            </li>
+          </ul>
         </div>
-        <div class="panel-body">
-          <pre>
-            {{res}}
-          </pre>
+
+      </div>
+      <div class="col-md-6">
+        <h4 id="title">Details</h4>
+        <div id="title-{{$index}}" class="panel panel-default" ng-repeat="api in vm.apis">
+          <div class="panel-heading">
+            {{api.url}}
+          </div>
+          <div class="panel-body">
+            <pre style="background: none; border: none;">{{api.res | json}}</pre>
+          </div>
         </div>
       </div>
-      {{/datas}}
+
     </div>
-  </script>
+  </div>
+
 
 
   <script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -40,17 +48,11 @@
       .module('app', [
         'ui.router'
       ])
-      .config(function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
-
-        $stateProvider
-          .state('', {
-            url: '/products/:productId',
-            templateUrl: 'src/views/plans.html',
-            controller: 'PlansController as vm'
-          });
-      })
-      .run(function() {
+      .controller('AppController', function($http) {
+        var vm = this;
+        $http.get('/mock-apis').then(function(data) {
+          vm.apis = data.data;
+        });
       });
 
     angular.bootstrap(document, ['app']);
