@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>api</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+  <h2 id="title">hello api</h2>
+  <div id="container" class="container">
+  </div>
+
+  <script id="content" type="text/x-handlebars-template">
+    <div>
+      {{#datas}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>{{url}}</h3>
+        </div>
+        <div class="panel-body">
+          <pre>
+            {{res}}
+          </pre>
+        </div>
+      </div>
+      {{/datas}}
+    </div>
+  </script>
+
+
+  <script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <script src="//cdn.bootcss.com/angular.js/1.5.0-beta.1/angular.min.js"></script>
+  <script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+  <script type="text/javascript">
+    angular
+      .module('app', [
+        'ui.router'
+      ])
+      .config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+          .state('', {
+            url: '/products/:productId',
+            templateUrl: 'src/views/plans.html',
+            controller: 'PlansController as vm'
+          });
+      })
+      .run(function() {
+      });
+
+    angular.bootstrap(document, ['app']);
+  </script>
+</body>
+
+</html>
