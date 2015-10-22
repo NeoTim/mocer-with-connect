@@ -1,11 +1,11 @@
-# n-mock-use-with-gulp
-n-mock example use with gulp.
+# n-mock-with-connect
+n-mock example use with connect.
 
 ## Usage
 
 ``` bash
-$ git clone git@github.com:forsigner/n-mock-use-with-gulp.git
-$ cd n-mock-use-with-gulp
+$ git clone git@github.com:forsigner/n-mock-with-connect.git
+$ cd n-mock-with-connect
 $ npm install
 $ gulp
 ```
