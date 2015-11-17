@@ -1,5 +1,6 @@
-# 用户列表
+# Get User List
 
+### request
 ```js
 //<request>
 [{
@@ -13,8 +14,26 @@
 }]
 ```
 
+### response with 200
 ```javascript
-//<response>
+//<response=200>
+[
+  {
+    id: 1,
+    name: "xx", // hello
+    email: "foo@gmail.com",
+  },
+  {
+    "id": 2,
+    "name": "bar",
+    "email": "bar@gmail.com"
+  }
+]
+```
+
+### response with 400
+```javascript
+//<response=400>
 [
   {
     id: 1,
