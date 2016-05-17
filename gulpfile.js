@@ -1,15 +1,17 @@
 'use strict';
 
 var gulp = require('gulp')
-var connect = require('connect');
 var opn = require('opn');
-var mock = require('n-mock');
+var connect = require('connect');
+var mocer = require('mocer');
+var path = require('path');
+var mockPath = path.join(process.cwd(), 'mocks');
+var app = connect();
 
 gulp.task('default', ['open-server']);
 
 gulp.task('server', function() {
-  var app = connect();
-  app.use(mock(__dirname + '/mocks'));
+  app.use(mocer(mockPath));
   app.listen(3000);
 });
 

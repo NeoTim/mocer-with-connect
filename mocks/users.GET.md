@@ -1,49 +1,31 @@
 # Get User List
 
-### request
+
+### URL
+
+/users
+
+### Request params
+
 ```js
 //<request>
-[{
-  "id": 1,
-  "name": "xx", // hello
-  "email": "foo@gmail.com"
-}, {
-  "id": 2,
-  "name": "bar",
-  "email": "bar@gmail.com"
-}]
+{
+  page: 1
+}
 ```
 
-### response with 200
+### Response
+
 ```javascript
 //<response=200>
 [
   {
     id: 1,
-    name: "xx", // hello
-    email: "foo@gmail.com",
+    name: 'foo' // book name
   },
   {
-    "id": 2,
-    "name": "bar",
-    "email": "bar@gmail.com"
-  }
-]
-```
-
-### response with 400
-```javascript
-//<response=400>
-[
-  {
-    id: 1,
-    name: "xx", // hello
-    email: "foo@gmail.com",
-  },
-  {
-    "id": 2,
-    "name": "bar",
-    "email": "bar@gmail.com"
+    id: 2,
+    name: 'bar' // book name
   }
 ]
 ```

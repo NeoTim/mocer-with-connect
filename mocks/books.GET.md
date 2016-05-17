@@ -1,30 +1,28 @@
-# 用户列表
+# 书籍列表
+
+### URL
+
+/books
+
+### Request params
 
 ```js
 //<request>
-[{
-  "id": 1,
-  "books": "xx", // hello
-  "email": "foo@gmail.com"
-}, {
-  "id": 2,
-  "name": "bar",
-  "email": "bar@gmail.com"
-}]
+{}
 ```
 
+### Response
+
 ```javascript
-//<response>
+//<response=200>
 [
   {
     id: 1,
-    book: "xx", // hello
-    email: "foo@gmail.com",
+    name: 'foo' // book name
   },
   {
-    "id": 2,
-    "name": "bar",
-    "email": "bar@gmail.com"
+    id: 2,
+    name: 'bar' // book name
   }
 ]
 ```
