@@ -1,11 +1,11 @@
-# n-mock-with-connect
-n-mock example use with connect.
+# mocer-with-connect
+mocer example use with connect.
 
 ## Usage
 
 ``` bash
-$ git clone git@github.com:forsigner/n-mock-with-connect.git
-$ cd n-mock-with-connect
+$ git clone git@github.com:forsigner/mocer-with-connect.git
+$ cd mocer-with-connect
 $ npm install
 $ gulp
 ```
